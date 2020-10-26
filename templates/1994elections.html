@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>1994-2018 MX Elections - Dashboard</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+  crossorigin=""/>
+
+  <!-- Icons -->
+  <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="static/css/leaflet.extra-markers.min.css">
+
+  <!-- Our CSS -->
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://d3js.org/d3.v4.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('ƒ') }}">Dashboard <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('aboutpage') }}">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2 class="text-center"><i>Dashboard</i><br>
+    <b>Mexico's Presidential Elections Overview 1994-2018</b></h2>
+  </div>
+
+  <div class="container">
+    <h5 class="text-center">Choose the election year you want to visualize:</h5>
+  </div>
+  <div class="col-16 d-flex justify-content-center">
+  <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-primary" onclick="location.href='{{ url_for('ninetyfourelections') }}'">1994</button>
+    <button type="button" class="btn btn-secondary" onclick="location.href='{{ url_for('twothousandselections') }}'">2000</button>
+    <button type="button" class="btn btn-secondary" onclick="location.href='{{ url_for('sixelections') }}'">2006</button>
+    <button type="button" class="btn btn-secondary" onclick="location.href='{{ url_for('twelveelections') }}'">2012</button>
+    <button type="button" class="btn btn-secondary" onclick="location.href='{{ url_for('ƒ') }}'"> 2018</button>
+  </div>
+</div>
+
+  <!-- The div that holds our map -->
+  <div id="map-id" style="height:500px; width:100%"></div>
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <div id="my_dataviz1994"></div>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script type="text/javascript" src="logic.js"></script>
+      </div>
+      <div class="col text-center">
+      <p>
+          <h5>1994 Elections</h5><br>
+          General elections were held in Mexico on 21 August 1994. The presidential elections resulted in a victory for Ernesto Zedillo of the Institutional Revolutionary Party (PRI). <br> To date, the 1994 elections mark the last time a presidential candidate won in all 31 states and Mexico City. Most political analysts agree that voters (in the aftermath of the Zapatista uprising that began in January and the assassination of the original PRI candidate Luis Donaldo Colosio), opted for continuity by allowing the PRI to remain in power, fearing that the country might otherwise be destabilized.
+      </p>
+      <img src="{{ user_image }}" alt="1994 Elections" style="width:500px;height:180;" class="photos">
+    </div>
+    </div>
+
+    <div class="footer">
+      <p>2020 - Data Bootcamp P2</p>
+  </div>
+  
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+    <!-- API key -->
+    <!--<script type="text/javascript" src="config.js"></script>-->
+    <!-- Our JS -->
+    <script type="text/javascript" src="../static/js/logic.js"></script>
+    <!-- D3 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+  
+    <!-- MomentJS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+  
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+  
+    <!-- Icons -->
+    <script src="../static/js/leaflet.extra-markers.min.js"></script>
+  
+    <!-- polyfill.io is library for using newer JavaScript features in older browers (such as Object.assign) -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  
+    <!-- API Key -->
+    <script type="text/javascript" src="../static/js/config.js"></script>
+  
+    <!-- Our JavaScript -->
+    <script type="text/javascript" src="../static/js/logic.js"></script>
+  
+  </body>
+  
+  </html>
+  
